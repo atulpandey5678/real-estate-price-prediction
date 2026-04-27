@@ -1,16 +1,16 @@
-# 🏠 Real Estate Price Prediction (India Focus)
+#  Real Estate Price Prediction (India Focus)
 
 A production-quality Machine Learning project that predicts residential property prices across Indian cities using structured housing data. Built with clean ML engineering practices and designed for professional portfolios.
 
 ---
 
-## 📌 Problem Statement
+##  Problem Statement
 
 The Indian real estate market is vast, diverse, and often lacks pricing transparency. This project addresses the challenge of **estimating property prices** based on key structural and locational features, enabling buyers, sellers, and agents to make data-driven pricing decisions.
 
 ---
 
-## 📊 Dataset Description
+##  Dataset Description
 
 A synthetic India-focused housing dataset with **5,000 records** and the following features:
 
@@ -29,7 +29,7 @@ A synthetic India-focused housing dataset with **5,000 records** and the followi
 
 ---
 
-## 🛠 Technologies Used
+## Technologies Used
 
 - **Python 3.10+**
 - **pandas** / **NumPy** — Data manipulation
@@ -41,7 +41,7 @@ A synthetic India-focused housing dataset with **5,000 records** and the followi
 
 ---
 
-## 🏗 Project Structure
+## Project Structure
 
 ```
 real_estate_price_prediction/
@@ -69,7 +69,7 @@ real_estate_price_prediction/
 
 ---
 
-## 🤖 Model Training Approach
+## Model Training Approach
 
 ### Pipeline
 
@@ -84,7 +84,7 @@ real_estate_price_prediction/
 
 ---
 
-## 📈 Evaluation Metrics
+## Evaluation Metrics
 
 All models are evaluated on the test set using:
 
@@ -96,7 +96,7 @@ All models are evaluated on the test set using:
 
 ---
 
-## 🚀 How to Run
+## How to Run
 
 ### 1. Clone & Install
 
@@ -136,7 +136,7 @@ Open [http://localhost:8501](http://localhost:8501) in your browser.
 
 ---
 
-## 🖥 Streamlit App
+## Streamlit App
 
 The web interface allows users to input property details and receive instant price predictions:
 
@@ -146,6 +146,6 @@ The web interface allows users to input property details and receive instant pri
 
 ---
 
-## 📄 License
+## License
 
 This project is open-source and available under the [MIT License](LICENSE).
