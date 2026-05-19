@@ -1,16 +1,12 @@
-#  Real Estate Price Prediction (India Focus)
+# Real Estate Price Prediction
 
-A production-quality Machine Learning project that predicts residential property prices across Indian cities using structured housing data. Built with clean ML engineering practices and designed for professional portfolios.
+A machine learning application to predict property prices in Indian cities. The application features a web interface built with Streamlit and uses models like XGBoost, Random Forest, and Linear Regression to estimate property values based on various features such as area, location, and amenities.
 
----
-
-##  Problem Statement
+## Problem Statement
 
 The Indian real estate market is vast, diverse, and often lacks pricing transparency. This project addresses the challenge of **estimating property prices** based on key structural and locational features, enabling buyers, sellers, and agents to make data-driven pricing decisions.
 
----
-
-##  Dataset Description
+## Dataset Description
 
 A synthetic India-focused housing dataset with **5,000 records** and the following features:
 
@@ -27,7 +23,86 @@ A synthetic India-focused housing dataset with **5,000 records** and the followi
 | `furnishing_status` | Furnished, Semi-Furnished, or Unfurnished |
 | `price` | **Target** — Price in INR Lakhs |
 
----
+## Features
+
+- **Predictive Modeling**: Estimate property prices using trained ML models.
+- **Interactive UI**: A Streamlit web application for easy interaction.
+- **Data Preprocessing**: Handling missing values, categorical encoding, etc.
+- **Model Training**: Easily retrain models with new data.
+
+## Project Structure
+
+```text
+real_estate_project/
+├── app/
+│   └── app.py                  # Streamlit application
+├── data/
+│   └── train.csv               # Dataset
+├── models/
+│   ├── feature_columns.json    # Saved feature names for prediction
+│   └── house_price_model.pkl   # Serialized ML model
+├── src/
+│   ├── data_preprocessing.py   # Data cleaning and handling missing values
+│   ├── evaluate_model.py       # Metrics for model evaluation
+│   ├── feature_engineering.py  # Feature transformations and encoding
+│   ├── predict.py              # Prediction pipeline
+│   └── train_model.py          # Model training pipeline
+├── requirements.txt            # Python dependencies
+└── README.md                   # Project documentation
+```
+
+## Getting Started
+
+### Prerequisites
+
+Ensure you have Python 3.8+ installed.
+
+### Installation
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/atulpandey5678/real-estate-price-prediction.git
+   cd real-estate-price-prediction
+   ```
+
+2. Create a virtual environment (optional but recommended):
+   ```bash
+   python -m venv .venv
+   # On Windows
+   .venv\Scripts\activate
+   # On macOS/Linux
+   source .venv/bin/activate
+   ```
+
+3. Install the dependencies:
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+### Usage
+
+**1. Train the model**
+
+If you want to retrain the model, run the training pipeline:
+```bash
+python -m src.train_model
+```
+This will evaluate multiple models (Linear Regression, Random Forest, XGBoost) and save the best performing model.
+
+**2. Make a quick prediction from CLI**
+
+Test the model prediction from the command line:
+```bash
+python -m src.predict
+```
+
+**3. Run the Web Application**
+
+Launch the Streamlit app to interact with the model via a web browser:
+```bash
+python -m streamlit run app/app.py
+```
+The app will automatically open in your default browser at `http://localhost:8502`.
 
 ## Technologies Used
 
@@ -39,112 +114,13 @@ A synthetic India-focused housing dataset with **5,000 records** and the followi
 - **joblib** — Model serialization
 - **Streamlit** — Interactive web application
 
----
-
-## Project Structure
-
-```
-real_estate_price_prediction/
-├── data/
-│   └── train.csv
-├── notebooks/
-│   └── eda.ipynb
-├── src/
-│   ├── __init__.py
-│   ├── data_preprocessing.py
-│   ├── feature_engineering.py
-│   ├── train_model.py
-│   ├── evaluate_model.py
-│   └── predict.py
-├── models/
-│   ├── house_price_model.pkl
-│   └── feature_columns.json
-├── app/
-│   └── app.py
-├── scripts/
-│   └── generate_dataset.py
-├── requirements.txt
-└── README.md
-```
-
----
-
-## Model Training Approach
-
-### Pipeline
-
-1. **Data Preprocessing** — Handle missing values (median for numerical, mode for categorical), remove columns with >40% missing data
-2. **Feature Engineering** — One-hot encode categorical variables, split into 80/20 train/test sets
-3. **Model Training** — Train three regression models:
-   - Linear Regression
-   - Random Forest Regressor (200 trees, max_depth=15)
-   - XGBoost Regressor (300 estimators, learning_rate=0.05)
-4. **Model Selection** — Automatically select the best model based on R² score
-5. **Serialization** — Save the best model and feature columns using joblib/JSON
-
----
-
-## Evaluation Metrics
-
-All models are evaluated on the test set using:
-
-| Metric | Description |
-|---|---|
-| **MAE** | Mean Absolute Error — average absolute difference |
-| **RMSE** | Root Mean Squared Error — penalizes large errors |
-| **R² Score** | Coefficient of Determination — variance explained |
-
----
-
-## How to Run
-
-### 1. Clone & Install
-
-```bash
-git clone https://github.com/your-username/real-estate-price-prediction.git
-cd real-estate-price-prediction
-pip install -r requirements.txt
-```
-
-### 2. Generate Dataset
-
-```bash
-python scripts/generate_dataset.py
-```
-
-### 3. Train the Model
-
-```bash
-python -m src.train_model
-```
-
-This will train all three models, evaluate them, select the best one, and save it to `models/`.
-
-### 4. Run Predictions (CLI)
-
-```bash
-python -m src.predict
-```
-
-### 5. Launch the Web App
-
-```bash
-streamlit run app/app.py
-```
-
-Open [http://localhost:8501](http://localhost:8501) in your browser.
-
----
-
 ## Streamlit App
 
 The web interface allows users to input property details and receive instant price predictions:
 
 - **Input Fields**: Property area, bedrooms, bathrooms, year built, garage size, lot area, location tier, property type, furnishing status
 - **Output**: Estimated price in INR Lakhs
-- **Design**: Clean, modern gradient-styled interface
-
----
+- **Design**: Clean, modern professional corporate theme with smooth animations and dynamic analytics.
 
 ## License
 

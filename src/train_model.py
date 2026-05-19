@@ -1,6 +1,13 @@
+"""
+Module to execute the model training pipeline, evaluate multiple algorithms, 
+and persist the best performing model.
+"""
+
 import os
 import json
 import joblib
+from typing import Dict, Any, List, Tuple
+
 from sklearn.linear_model import LinearRegression
 from sklearn.ensemble import RandomForestRegressor
 from xgboost import XGBRegressor
@@ -9,7 +16,8 @@ from src.feature_engineering import get_engineered_data
 from src.evaluate_model import evaluate_models, select_best_model
 
 
-def get_models():
+def get_models() -> Dict[str, Any]:
+    """Returns a dictionary of uninitialized machine learning models to train."""
     return {
         "Linear Regression": LinearRegression(),
         "Random Forest": RandomForestRegressor(
@@ -22,7 +30,8 @@ def get_models():
     }
 
 
-def train_models(models, X_train, y_train):
+def train_models(models: Dict[str, Any], X_train: Any, y_train: Any) -> Dict[str, Any]:
+    """Trains the given models using the training data."""
     trained = {}
     for name, model in models.items():
         model.fit(X_train, y_train)
@@ -30,18 +39,21 @@ def train_models(models, X_train, y_train):
     return trained
 
 
-def save_model(model, path):
+def save_model(model: Any, path: str) -> None:
+    """Serializes and saves the model to the specified path."""
     os.makedirs(os.path.dirname(path), exist_ok=True)
     joblib.dump(model, path)
 
 
-def save_feature_columns(columns, path):
+def save_feature_columns(columns: List[str], path: str) -> None:
+    """Saves the list of expected feature columns to a JSON file."""
     os.makedirs(os.path.dirname(path), exist_ok=True)
-    with open(path, "w") as f:
+    with open(path, "w", encoding="utf-8") as f:
         json.dump(columns, f)
 
 
-def run_training_pipeline(data_path, model_dir):
+def run_training_pipeline(data_path: str, model_dir: str) -> Tuple[Any, Dict[str, Dict[str, float]]]:
+    """Main function that drives the training and evaluation process."""
     X_train, X_test, y_train, y_test, feature_columns = get_engineered_data(data_path)
 
     models = get_models()
