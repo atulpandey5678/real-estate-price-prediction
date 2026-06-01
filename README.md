@@ -1,3 +1,6 @@
+live link : https://real-estate-price-prediction-bvyxm63jntpb8t3zjlu8cc.streamlit.app/
+
+
 # Real Estate Price Prediction
 
 A machine learning application to predict property prices in Indian cities. The application features a web interface built with Streamlit and uses models like XGBoost, Random Forest, and Linear Regression to estimate property values based on various features such as area, location, and amenities.
@@ -104,24 +107,4 @@ python -m streamlit run app/app.py
 ```
 The app will automatically open in your default browser at `http://localhost:8502`.
 
-## Technologies Used
 
-- **Python 3.10+**
-- **pandas** / **NumPy** — Data manipulation
-- **scikit-learn** — ML models & evaluation
-- **XGBoost** — Gradient boosting regressor
-- **Matplotlib** / **Seaborn** — Visualization
-- **joblib** — Model serialization
-- **Streamlit** — Interactive web application
-
-## Streamlit App
-
-The web interface allows users to input property details and receive instant price predictions:
-
-- **Input Fields**: Property area, bedrooms, bathrooms, year built, garage size, lot area, location tier, property type, furnishing status
-- **Output**: Estimated price in INR Lakhs
-- **Design**: Clean, modern professional corporate theme with smooth animations and dynamic analytics.
-
-## License
-
-This project is open-source and available under the [MIT License](LICENSE).
